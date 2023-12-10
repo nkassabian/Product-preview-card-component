@@ -1,0 +1,230 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:wght@500;700&display=swap");
+
+:root {
+  --clr-primary-100: hsl(158, 36%, 37%);
+  --clr-primary-300: hsl(158, 36%, 20%);
+  --clr-primary-200: hsl(30, 38%, 92%);
+
+  --clr-neutral-300: hsl(212, 21%, 14%);
+  --clr-neutral-200: hsl(228, 12%, 48%);
+  --clr-neutral-100: hsl(0, 0%, 100%);
+
+  --fs-main: 14px;
+
+  --fw-main: 500;
+  --fw-bold: 700;
+
+  --ff-sec: "Fraunces", serif;
+  --ff-main: "Montserrat", sans-serif;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  font-size: var(--fs-main);
+  font-family: var(--ff-main);
+  color: var(--clr-neutral-200);
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.7;
+  min-height: 100vh;
+  margin: 1rem;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  background: var(--clr-primary-200);
+  font-weight: var(--fw-main);
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* Helper Classes */
+.desktop-hide {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-hide {
+    display: none;
+  }
+
+  .desktop-hide {
+    display: block;
+  }
+}
+
+.flex-group {
+  display: flex;
+  flex-wrap: wrap;
+  /* align-items: center; */
+}
+
+.product__pop {
+  font-family: var(--ff-sec);
+  color: var(--pop-color, var(--clr-neutral-300));
+  font-weight: var(--fw-bold);
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+@media (min-width: 768px) {
+  .product__pop {
+    font-size: 2.2rem;
+  }
+}
+
+.prodcut__price.product__pop {
+  color: var(--clr-primary-100);
+}
+
+/* Specifics */
+
+.product {
+  --product-body-padding: 1.5rem;
+  --content-spacing: 1rem;
+  /* width: 48rem; */
+  background: white;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  display: grid;
+  max-width: 600px;
+}
+
+@media (min-width: 768px) {
+  .product {
+    grid-template-columns: 1fr 1fr;
+    --product-body-padding: 2rem;
+    --content-spacing: 1rem;
+    /* max-width: 46rem; */
+  }
+}
+
+.product__body {
+  padding: var(--product-body-padding);
+  display: grid;
+  gap: var(--content-spacing);
+}
+
+.prodcut__original-price {
+  margin-left: 1rem;
+  text-decoration: line-through;
+}
+
+.product__category {
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+  .product__category {
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+  }
+}
+
+.product__content {
+  margin: 2.5rem;
+}
+
+.button {
+  font-weight: var(--fw-bold);
+  background-color: var(--clr-primary-100);
+  border: none;
+  color: var(--clr-neutral-100);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  display: inline-flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+  max-height: 3.5rem;
+}
+
+.button:is(:hover, :focus) {
+  background-color: var(--clr-primary-300);
+}
